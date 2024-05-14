@@ -16,11 +16,16 @@ function onLoginSubmit(event) {
   // username을 입력받으면 입력창(input) 안보이게 함
   loginForm.classList.add(HIDDEN_CLASSNAME);
 
-  //input 안보이게 한 후, h1은 보이게 함(표시할 텍스트가 있을 때만)
+  // input 안보이게 한 후, h1은 보이게 함(표시할 텍스트가 있을 때만)
   greeting.innerText = `Hello ${username}`; // 백틱
 
-  //h1의 class="hidden" 없애주기
+  // h1의 class="hidden" 없애주기
   greeting.classList.remove(HIDDEN_CLASSNAME);
+
+  // 새로고침해도 username이 저장되도록 => local storage
+  // setItem(Key,Value), getItem(Key), removeIten(Key)
+  localStorage.setItem("username", username);
+  //
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);
