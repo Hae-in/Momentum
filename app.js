@@ -1,23 +1,12 @@
 const loginInput = document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form button");
+const loginForm = document.querySelector("#login-form");
 
-function onLoginBtnClick() {
-  // console.dir(loginInput);
-  // console.log(loginInput.value);
-  // console.log("clicked!!");
-
+function onLoginSubmit(event) {
+  event.preventDefault(); // 어떤 event의 기본 행동이 발생되지 않도록 막아줌,
+  //ex) form을 submit하면 브라우저는 기본적으로 페이지를 새로고침 하도록 되어있다.
+  //console.log(event);
   const username = loginInput.value;
-
-  /*
-  //html input에서 직접하도록 변경
-  if (username === "") {
-    // input에 입력이 없을 경우
-    console.log("Please write your name.");
-  } else if (username.length > 15) {
-    // username이 15글자 초과할 경우
-    console.log("Your name is too long.");
-  }
-  */
+  console.log(username);
 }
 
-loginButton.addEventListener("click", onLoginBtnClick);
+loginForm.addEventListener("submit", onLoginSubmit);
