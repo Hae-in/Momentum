@@ -76,3 +76,14 @@ if (savedTodos !== null) {
   // parsedTodos.forEach((item) => console.log("this is turn of", item)); // arrow function
   parsedTodos.forEach(paintTodo); // arrow function
 }
+
+// 지우고 싶은 item을 제외하고 새로운 array 만듦
+// array의 item을 유지하고 싶으면 filter(true) 리턴해야함
+
+/* 
+function sexyFilter(item) {
+  return item !== 3;
+} //item이 3이 아니면 true 리턴 
+
+//[1, 2, 3, 4, 5].filter(sexyFilter) --> [1, 2, 4, 5]
+*/
