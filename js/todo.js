@@ -1,7 +1,8 @@
 const todoForm = document.getElementById("todo-form");
 const todoInput = document.querySelector("#todo-form input");
 const todoList = document.getElementById("todo-list");
-const todos = [];
+
+let todos = []; // todos 업데이트
 
 const TODOS_KEY = "todos";
 
@@ -52,8 +53,14 @@ const savedTodos = localStorage.getItem(TODOS_KEY);
 
 if (savedTodos !== null) {
   const parsedTodos = JSON.parse(savedTodos);
+  //   console.log(`parsed todos : ${parsedTodos}`);
+
+  // todos = []; 로 시작했기 때문에 업데이트 해줘야됨
+  //localStorage에 저장되어 있는 값 + 현재 추가 된 값
+  todos = parsedTodos;
 
   // array에 있는 각각의 item에 대해서 실행
   // parsedTodos.forEach(sayHello);
-  parsedTodos.forEach((item) => console.log("this is turn of", item)); // arrow function
+  // parsedTodos.forEach((item) => console.log("this is turn of", item)); // arrow function
+  parsedTodos.forEach(paintTodo); // arrow function
 }
