@@ -26,7 +26,11 @@ function paintTodo(newTodo) {
   const span = document.createElement("span");
   const button = document.createElement("button");
 
-  span.innerText = newTodo;
+  //삭제할 li를 찾기 위해서 obj의 id를 참조
+  li.id = newTodo.id;
+
+  // span.innerText = newTodo;
+  span.innerText = newTodo.text; // obj는 id, text를 갖고있음
   button.innerText = "❌";
   button.addEventListener("click", deleteTodo);
 
@@ -41,8 +45,16 @@ function handleTodoSubmit(event) {
   const newTodo = todoInput.value;
   todoInput.value = "";
   // console.log(newTodo);
-  todos.push(newTodo);
-  paintTodo(newTodo);
+
+  const newTodoObj = {
+    id: Date.now(),
+    text: newTodo,
+  };
+
+  // todos.push(newTodo); // todos에 text 저장
+  // paintTodo(newTodo);
+  todos.push(newTodoObj); // todos에 object 저장
+  paintTodo(newTodoObj);
   saveTodos();
 }
 
