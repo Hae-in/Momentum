@@ -9,6 +9,12 @@ const TODOS_KEY = "todos";
 function deleteTodo(event) {
   const li = event.target.parentElement;
   li.remove();
+
+  //클릭했던 li의 id를 갖고있는 todo 삭제
+  todos = todos.filter((todo) => todo.id !== parseInt(li.id));
+  // todo.id : number / li.id : String
+  // 서로 타입이 달라서 삭제 실행이 안됨 --> parseInt()
+  saveTodos(); // todos DB에서 todo를 지운 뒤에 저장
 }
 
 function saveTodos() {
